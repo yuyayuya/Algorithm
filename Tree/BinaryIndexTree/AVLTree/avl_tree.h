@@ -152,11 +152,13 @@ template <typename T>
 void
 AvlTree<T>::Clear()
 {
-    FuncDFS(root_, [](struct Node<T> *node) {
-        delete node;
-        return 0;
-    });
-    root_ = null_node_;
+    if (root_ != null_node_) {
+        FuncDFS(root_, [](struct Node<T> *node) {
+            delete node;
+            return 0;
+        });
+        root_ = null_node_;
+    }
 }
 
 template <typename T>
@@ -202,8 +204,17 @@ template <typename T>
 struct Node<T> *
 AvlTree<T>::SearchParentNode(struct Node<T> *node, const T &data)
 {
-    struct Node<T> *target = SearchNode(node, data);
-    return target->parent;
+    struct Node<T> *parent = node;
+    struct Node<T> *tmp = data < node->data ? node->left : node->right;
+    while ((tmp != null_node_) && (tmp->data != data)) {
+        parent = tmp;
+        if (data < tmp->data) {
+            tmp = tmp->left;
+        } else {
+            tmp = tmp->right;
+        }
+    }
+    return parent;
 }
 
 template <typename T>
@@ -335,9 +346,9 @@ AvlTree<T>::BalanceErase(struct Node<T> *node)
         if (parent->right == target) {
             if (Bias(parent) == 2) {
                 if (Bias(parent->left) >= 0) {
-                    parent = RotateL(parent);
+                    parent = RotateR(parent);
                 } else {
-                    parent = RotateRL(parent);
+                    parent = RotateLR(parent);
                 }
             } else {
                 ModHeight(parent);
@@ -345,9 +356,9 @@ AvlTree<T>::BalanceErase(struct Node<T> *node)
         } else {
             if (Bias(parent) == -2) {
                 if (Bias(parent->right) <= 0) {
-                    parent = RotateR(parent);
+                    parent = RotateL(parent);
                 } else {
-                    parent = RotateLR(parent);
+                    parent = RotateRL(parent);
                 }
             } else {
                 ModHeight(parent);
