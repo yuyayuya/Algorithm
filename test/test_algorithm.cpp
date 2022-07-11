@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-#include "avl_tree/test_avl_tree.h"
+#include "tree/test_tree.h"
+#include "sort/test_sort.h"
 
 int main(int argc, char *argv[])
 {

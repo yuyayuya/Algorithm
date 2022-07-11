@@ -1,6 +1,6 @@
-#include "test_avl_tree.h"
+#include "test_tree.h"
 
-TEST_F(AvlTreeTest, FunctionTest)
+TEST_F(TreeTest, FunctionTest)
 {
     AvlTree<int> *tree = new AvlTree<int>();
     EXPECT_TRUE(tree->Empty());

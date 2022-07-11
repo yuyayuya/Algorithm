@@ -31,5 +31,9 @@
 *.out
 *.app
 
+# CMake
+build
+
 # For Mac
 .DS_Store
+*.dSYM
