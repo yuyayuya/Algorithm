@@ -14,7 +14,7 @@ void
 InsertionSort<T>::Sort(T *data, size_t size)
 {
     for (int i = 1; i < size; i++) {
-        int target = data[i];
+        T target = data[i];
         int j = i - 1;
         while ((j >= 0) && (data[j] > target)) {
             data[j+1] = data[j];
