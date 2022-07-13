@@ -4,6 +4,7 @@
 #include <gtest/gtest.h>
 #include "../../include/sort/insertion_sort.h"
 #include "../../include/sort/bubble_sort.h"
+#include "../../include/sort/selection_sort.h"
 
 class SortTest : public ::testing::Test {
 protected:
