@@ -5,6 +5,7 @@
 #include "../../include/sort/insertion_sort.h"
 #include "../../include/sort/bubble_sort.h"
 #include "../../include/sort/selection_sort.h"
+#include "../../include/sort/shell_sort.h"
 
 class SortTest : public ::testing::Test {
 protected:
