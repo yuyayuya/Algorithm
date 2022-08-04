@@ -7,6 +7,7 @@
 #include "../../include/sort/selection_sort.h"
 #include "../../include/sort/shell_sort.h"
 #include "../../include/sort/merge_sort.h"
+#include "../../include/sort/quick_sort.h"
 
 class SortTest : public ::testing::Test {
 protected:
